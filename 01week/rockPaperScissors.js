@@ -1,3 +1,10 @@
+//CODE PLAN//
+//Check for valid input "Rock, Paper, Scissor and also to make sure input is not undefined
+//Check for Tie
+//Check for Hand 1" win 
+//Remainder is Hand 2 win
+
+
 'use strict';
 
 const assert = require('assert');
@@ -10,14 +17,29 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here
-
+  // Write code here  
+ if(hand1 && hand2) {
+  hand1.trim().toLowerCase(); //trim not working
+  hand2.trim().toLowerCase();
+    if (hand1 === hand2) {
+      return "It's a Tie!";
+    } else if ((hand1 === 'paper' && hand2 === 'rock' || hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper')) {
+      return "Hand 1 Wins!";
+    } else if (hand2 === 'paper' && hand1 === 'rock' || hand2 === 'scissors' && hand1 === 'paper' || hand2 === 'rock' && hand1 === 'scissors'){
+      return 'Hand 2 Wins!';
+    } else {
+      return 'invalid entries!';
+    }
+  }  else {
+    return "please enter rock, paper or scissors";
+  } 
 }
+rockPaperScissors();
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log( rockPaperScissors(answer1, answer2) ); 
       getPrompt();
     });
   });
