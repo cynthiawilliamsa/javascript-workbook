@@ -1,9 +1,9 @@
 //CODE PLAN//
-//Check for valid input "Rock, Paper, Scissor and also to make sure input is not undefined
-//Check for Tie
-//Check for Hand 1" win 
-//Remainder is Hand 2 win
-
+//Check for valid input "Rock, Paper, Scissor and also to make sure input is not undefined using toLowerCase and trim methods for extra spaces and case differences
+//Check for Tie using if/else conditional
+//Check for Hand 1" win using if/else conditional
+//Remainder is Hand 2 win using if/else conditional
+//if input is not present, or does not match rock paper or scissors prompt user to enter one of those three
 
 'use strict';
 
@@ -16,23 +16,20 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
-
   // Write code here 
-  const cleanhand1 = hand1.toLowerCase().trim(); //re-assign the input value to a variable if cleaning. 
-  const cleanHand2 = hand2.toLowerCase().trim();
-  console.log(cleanhand1);
-  console.log(cleanHand2);
-  if(cleanhand1 === 'rock' || cleanhand1 === 'paper' || cleanhand1 === 'scissors' && cleanHand2 === 'rock' || cleanHand2 === 'paper' || cleanHand2 === 'scissors'){
-    if (cleanhand1 === cleanHand2) {
+  const cleanHand1 = hand1.toLowerCase().trim(); //re-assign the input value to a variable if scrubbing. 
+  const cleanHand2 = hand2.toLowerCase().trim();  
+  if(cleanHand1 === 'rock' || cleanHand1 === 'paper' || cleanHand1 === 'scissors' && cleanHand2 === 'rock' || cleanHand2 === 'paper' || cleanHand2 === 'scissors'){
+    if (cleanHand1 === cleanHand2) {
       return "It's a Tie!";
-    } else if (cleanhand1 === 'paper' && cleanHand2 === 'rock' || 
-              cleanhand1 === 'rock' && cleanHand2 === 'scissors' || 
-              cleanhand1 === 'scissors' && cleanHand2 === 'paper') 
+    } else if (cleanHand1 === 'paper' && cleanHand2 === 'rock' || 
+              cleanHand1 === 'rock' && cleanHand2 === 'scissors' || 
+              cleanHand1 === 'scissors' && cleanHand2 === 'paper') 
               {
       return "Hand 1 Wins!";
-    } else if (cleanHand2 === 'paper' && cleanhand1 === 'rock' || 
-              cleanHand2 === 'scissors' && cleanhand1 === 'paper' || 
-              cleanHand2 === 'rock' && cleanhand1 === 'scissors')
+    } else if (cleanHand2 === 'paper' && cleanHand1 === 'rock' || 
+              cleanHand2 === 'scissors' && cleanHand1 === 'paper' || 
+              cleanHand2 === 'rock' && cleanHand1 === 'scissors')
               {
       return 'Hand 2 Wins!';
       } 
