@@ -17,24 +17,29 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 
-  // Write code here  
- if(hand1 && hand2) {
-  hand1.trim().toLowerCase(); //trim not working
-  hand2.trim().toLowerCase();
-    if (hand1 === hand2) {
+  // Write code here 
+  const cleanhand1 = hand1.toLowerCase().trim(); //re-assign the input value to a variable if cleaning. 
+  const cleanHand2 = hand2.toLowerCase().trim();
+  console.log(cleanhand1);
+  console.log(cleanHand2);
+  if(cleanhand1 === 'rock' || cleanhand1 === 'paper' || cleanhand1 === 'scissors' && cleanHand2 === 'rock' || cleanHand2 === 'paper' || cleanHand2 === 'scissors'){
+    if (cleanhand1 === cleanHand2) {
       return "It's a Tie!";
-    } else if ((hand1 === 'paper' && hand2 === 'rock' || hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper')) {
+    } else if (cleanhand1 === 'paper' && cleanHand2 === 'rock' || 
+              cleanhand1 === 'rock' && cleanHand2 === 'scissors' || 
+              cleanhand1 === 'scissors' && cleanHand2 === 'paper') 
+              {
       return "Hand 1 Wins!";
-    } else if (hand2 === 'paper' && hand1 === 'rock' || hand2 === 'scissors' && hand1 === 'paper' || hand2 === 'rock' && hand1 === 'scissors'){
+    } else if (cleanHand2 === 'paper' && cleanhand1 === 'rock' || 
+              cleanHand2 === 'scissors' && cleanhand1 === 'paper' || 
+              cleanHand2 === 'rock' && cleanhand1 === 'scissors')
+              {
       return 'Hand 2 Wins!';
-    } else {
-      return 'invalid entries!';
-    }
+      } 
   }  else {
     return "please enter rock, paper or scissors";
   } 
 }
-rockPaperScissors();
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
