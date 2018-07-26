@@ -27,7 +27,9 @@ const rl = readline.createInterface({
 });
 //checks for no entry and a string entry
 const strIsValid = (word) => {
-  if (word && typeof word === 'string') {
+  if (word && 
+    !Number(word) && 
+    typeof word === 'string') {
     return true;
   }
 }
