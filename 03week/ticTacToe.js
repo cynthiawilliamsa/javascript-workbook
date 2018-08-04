@@ -29,6 +29,37 @@ function horizontalWin() {
 
 function verticalWin() {
   // Your code here
+  const vert1 = [//0 1
+    [0, 0], //0 <-- 2nd arg in foreach
+    [1, 0], //1
+    [2, 0]  //2
+  ]
+  const vert2 = [
+    [0, 1],
+    [1, 1],
+    [2, 1]
+  ]
+  const vert3 = [
+    [0, 2],
+    [1, 2],
+    [2, 2]
+  ]
+
+  if (checkForWin(vert1, playerTurn, board)== true) {
+    console.log("win")
+    return true
+  }
+
+  if (checkForWin(vert2, playerTurn, board)) {
+    return true
+  }
+
+  if (checkForWin(vert3, playerTurn, board)) {
+    return true
+  }
+
+  return false
+}
 }
 
 function diagonalWin() {
