@@ -12,13 +12,13 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const fresh = {
+const stacks = {
   a: [4, 3, 2, 1],
   b: [],
   c: []
 };
 
-let stacks = fresh
+// let stacks = fresh
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -124,9 +124,9 @@ if (typeof describe === 'function') {
 
   })
 
-// } else {
+} else {
 
-//   getPrompt();
+  getPrompt();
   
 
 }
