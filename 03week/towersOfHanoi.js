@@ -19,25 +19,31 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
-
+const isLegal= (startTemp, endTemp) => {
+  if (endTemp===undefined || startTemp <= endTemp) {
+    return true 
+} else {
+    return false
 }
-
-function isLegal() {
-  // Your code here
-
 }
+const movePiece = (startStack, endStack) => {
+  const startTemp = stacks[startStack];
+  const endTemp = stacks[endStack];  
+  if (isLegal(startTemp[startTemp.length-1], endTemp[endTemp.length-1])) {
+    const value = startTemp.pop()
+    return endTemp.push(value); 
+  } else {
+    return 'Move is invalid'
+  }  
+  }
 
 function checkForWin() {
   // Your code here
 
 }
-
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
-}
+function towersOfHanoi(startStack, endStack) {  
+    movePiece(startStack, endStack);
+  };
 
 function getPrompt() {
   printStacks();
