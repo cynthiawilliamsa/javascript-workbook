@@ -10,8 +10,9 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
 let gameover = false;
+let turn = 1;
 
-function printBoard() {
+const printBoard= () => {
   console.log("   0  1  2");
   console.log("0 " + board[0].join(" | "));
   console.log("  ---------");
@@ -102,7 +103,7 @@ const checkForWin = (windcondition, turn, board) => {
 
   let winner =true;
   windcondition.forEach(conditions => {
-    console.log(`${conditions}:${board[conditions[0]][conditions[1]]}:${playerTurn}`)
+
     // Board   row        col
     if (board[conditions[0]][conditions[1]] !== playerTurn) {
       winner = false;
@@ -133,13 +134,23 @@ const ticTacToe = (row, column) => {
   //and check for wins.
   if (!board[row][column] || board[row][column] === " " ) {
     board[row][column] = playerTurn;
+    turn++;
+    
     if (isWinner()) {
       console.log(`Player ${playerTurn} wins!`);
       gameover = true;
-      return;
+      return; // Exit early on win, no need to swithc player
+    } 
+
+    if( turn > 9){
+      gameover =true
+      console.log('No more moves. No winner :(')
+      return; // Exit early on no more moves, no need to swithc player
     }
 
     switchPlayer();
+  } else{
+    console.log("Invalid move, try again")
   }
 }
 
