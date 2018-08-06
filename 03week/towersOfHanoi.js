@@ -62,17 +62,6 @@ const towersOfHanoi = (startStack, endStack) => {
     return "Move is invalid";
   }
 };
-const towersOfHanoi = (startStack, endStack) => {
-  if (isLegal(startStack, endStack)) {
-    movePiece(startStack, endStack);
-    if (checkForWin(stacks)) {
-      reset();
-      return "You Win!";
-    }
-  } else {
-    return "Move is invalid";
-  }
-};
 
 function getPrompt() {
   printStacks();
@@ -83,7 +72,6 @@ function getPrompt() {
     });
   });
 }
-
 // Tests
 
 if (typeof describe === "function") {
