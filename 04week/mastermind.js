@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -31,10 +31,23 @@ function getRandomInt(min, max) {
 function generateHint() {
   // your code here
 }
+const acceptableGuess = (guess) =>{
+  //check for 4 char entry
+  if(guess.length === 4) {
+    let allLettersInTheArr = true;
+    const guessArr = guess.split('');
+    guessArr.forEach((letter)=>{
+      console.log(letters);
+      console.log(letters.indexOf(letter), letter);
+    })
+  }
+}
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  console.log(guess, 'user guess')
+  acceptableGuess(guess);
+  
 }
 
 
