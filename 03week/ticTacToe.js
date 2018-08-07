@@ -6,7 +6,11 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+let board = [
+  [" ", " ", " "], 
+  [" ", " ", " "], 
+  [" ", " ", " "]
+];
 
 let playerTurn = "X";
 let gameover = false;
@@ -24,93 +28,96 @@ const printBoard= () => {
 //Check for horizontal wins
 const horizontalWin = () => {
   const hort1 = [
-    //0 1
-    [0, 0], //0 <-- 2nd arg in foreach
-    [0, 1], //1
-    [0, 2] //2
+    [0, 0],
+    [0, 1], 
+    [0, 2]
   ];
-  const hort2 = [[1, 0], [1, 1], [1, 2]];
-  const hort3 = [[2, 0], [2, 1], [2, 1]];
+  const hort2 = [
+    [1, 0], 
+    [1, 1], 
+    [1, 2]
+  ];
+  const hort3 = [
+    [2, 0], 
+    [2, 1], 
+    [2, 1]
+  ];
 
-  if (checkForWin(hort1, playerTurn, board) == true) {
+  if (checkForWin(hort1, playerTurn, board) === true) {
     return true;
   }
-
   if (checkForWin(hort2, playerTurn, board)) {
     return true;
   }
-
   if (checkForWin(hort3, playerTurn, board)) {
     return true;
   }
-
-  return false;
+    return false;
 };
 
-
 //Check for vertical wins
-const verticalWin = () => {
-  // Your code here
+const verticalWin = () => { 
   const vert1 = [
     //0 1
     [0, 0], //0 <-- 2nd arg in foreach
     [1, 0], //1
     [2, 0] //2
   ];
-  const vert2 = [[0, 1], [1, 1], [2, 1]];
-  const vert3 = [[0, 2], [1, 2], [2, 2]];
+  const vert2 = [
+    [0, 1], 
+    [1, 1], 
+    [2, 1]
+  ];
+  const vert3 = [
+    [0, 2], 
+    [1, 2], 
+    [2, 2]
+  ];
 
   if (checkForWin(vert1, playerTurn, board) == true) {
-    console.log("win");
+    // console.log("win");
     return true;
   }
-
   if (checkForWin(vert2, playerTurn, board)) {
     return true;
   }
-
   if (checkForWin(vert3, playerTurn, board)) {
     return true;
   }
-
-  return false;
+    return false;
 };
-
-
 //Check for diagonal wins
-const diagonalWin = () => {
-  // Your code here
+const diagonalWin = () => { 
   const diag1 = [
     //0 1
     [0, 0], //0 <-- 2nd arg in foreach
     [1, 1], //1
     [2, 2] //2
   ];
-  const diag2 = [[0, 2], [1, 1], [2, 0]];
-
+  const diag2 = [
+    [0, 2], 
+    [1, 1], 
+    [2, 0]
+  ];
   if (
     checkForWin(diag1, playerTurn, board) ||
     checkForWin(diag2, playerTurn, board)
   ) {
     return true;
   }
-
-  return false;
+    return false;
 };
 
 //Checking the board state based on an array of conditions passed in
-const checkForWin = (windcondition, turn, board) => {
-
+const checkForWin = (wincondition, turn, board) => {
   let winner =true;
-  windcondition.forEach(conditions => {
-
-    // Board   row        col
+  wincondition.forEach(conditions => {
+    // Board      row                col
     if (board[conditions[0]][conditions[1]] !== playerTurn) {
       winner = false;
     }
   });
-
-  return winner;
+    return winner;
 };
 
 const switchPlayer = () => {
@@ -126,28 +133,25 @@ const isWinner = () => {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     return true
   }
-
-  return false
+    return false
 };
+
 const ticTacToe = (row, column) => {
   //check if the placement is valid, then place it
   //and check for wins.
   if (!board[row][column] || board[row][column] === " " ) {
     board[row][column] = playerTurn;
-    turn++;
-    
+    turn++;    
     if (isWinner()) {
       console.log(`Player ${playerTurn} wins!`);
       gameover = true;
-      return; // Exit early on win, no need to swithc player
+      return; // Exit early on win, no need to switch player
     } 
-
     if( turn > 9){
       gameover =true
-      console.log('No more moves. No winner :(')
+      console.log('No more moves. No winner :(');
       return; // Exit early on no more moves, no need to swithc player
     }
-
     switchPlayer();
   } else{
     console.log("Invalid move, try again")
