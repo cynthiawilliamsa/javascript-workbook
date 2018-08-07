@@ -15,7 +15,7 @@ const startingStacks = {
 
 let stacks = startingStacks;
 
-function printStacks() {
+const printStacks= ()=>{
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
@@ -63,7 +63,7 @@ const towersOfHanoi = (startStack, endStack) => {
   }
 };
 
-function getPrompt() {
+const getPrompt = () => {
   printStacks();
   rl.question("start stack: ", startStack => {
     rl.question("end stack: ", endStack => {
