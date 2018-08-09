@@ -29,25 +29,46 @@ function getRandomInt(min, max) {
 }
 
 function generateHint() {
-  // your code here
+  const guessArr = guess.split('');
+  let correctLetter = 0;
+  let correctSpot = 0;
+  guessArr.forEach((letter)=>{
+    console.log(letter, solution.indexOf(letter), 'check')
+  })
 }
+//determine if what user enters is acceptable
 const acceptableGuess = (guess) =>{
   //check for 4 char entry
   if(guess.length === 4) {
-    let allLettersInTheArr = true;
+    let allLettersAreLegal = true;
     const guessArr = guess.split('');
     guessArr.forEach((letter)=>{
-      console.log(letters);
-      console.log(letters.indexOf(letter), letter);
+      if(letters.indexOf(letter) === -1) {
+        allLettersAreLegal = false
+      }      
     })
+    return allLettersAreLegal
   }
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
-  console.log(guess, 'user guess')
-  acceptableGuess(guess);
-  
+  if(acceptableGuess(guess)) {
+    if(guess === solution) {
+      board = [];
+      return "You guessed it!"
+    }else {
+      //return my hint function
+      generateHint(guess);
+      board.push(guess);
+      if(board.length > 9) {
+        return "You Lose"
+        board = [];
+      }
+    }
+  } else {
+      return 'Please enter valid guess'
+  }  
 }
 
 
