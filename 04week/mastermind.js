@@ -23,7 +23,7 @@ function generateSolution() {
     solution += letters[randomIndex];
   }
 }
-
+//not sure what this is doing in the game?
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
