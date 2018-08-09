@@ -1,3 +1,10 @@
+//code plan
+//convert functions to ES6
+//check if the placement is valid, then place it (tictactoe())
+//check for wins (checkForWin(), verticalWin(), horizontalWin(), diagonalWin(), isWinner())
+  //Each directional win function checks possible winner arrays against by looping through current board state(checkForWins()).  IsWinner() is used in the main game function to check for truthy return of direction check functions.
+//switchplayer each time main function is called (switchPlayer())
+
 "use strict";
 
 const assert = require("assert");
@@ -25,7 +32,7 @@ const printBoard= () => {
   console.log("2 " + board[2].join(" | "));
 }
 
-//Check for horizontal wins
+//Check for horizontal wins using arrays containing possible winning combos and checking against board state (checkForWin())
 const horizontalWin = () => {
   const hort1 = [
     [0, 0],
@@ -42,7 +49,7 @@ const horizontalWin = () => {
     [2, 1], 
     [2, 1]
   ];
-
+  
   if (checkForWin(hort1, playerTurn, board) === true) {
     return true;
   }
@@ -55,7 +62,7 @@ const horizontalWin = () => {
     return false;
 };
 
-//Check for vertical wins
+//Check for vertical wins using arrays containing possible winning combos and checking against board state (checkForWin())
 const verticalWin = () => { 
   const vert1 = [
     //0 1
@@ -86,7 +93,7 @@ const verticalWin = () => {
   }
     return false;
 };
-//Check for diagonal wins
+//Check for diagonal wins by using arrays containing all possible win combos and checking against board state (checkForWin())
 const diagonalWin = () => { 
   const diag1 = [
     //0 1
