@@ -27,26 +27,18 @@ const rl = readline.createInterface({
 });
 //checks for no entry and a string entry
 const strIsValid = (word) => {
-  if (word && 
+    return word && 
     !Number(word) && 
-    typeof word === 'string') {
-    return true;
-  }
+    typeof word === 'string';
 }
 //cleans up spaces on both ends of entry and changes case to lower case
 const scrubInput = (word) => {
   return word.trim().toLowerCase();
 }
 //checks for vowel as first index of string.
-const chkForVowelStart = (word) => {
-  if (word[0] === 'a' || 
-      word[0] === 'e' || 
-      word[0] === 'i' || 
-      word[0] === 'o' || 
-      word[0] === 'u') {
-    return true;
-  }
-}
+const chkForVowelStart = (word) => {  
+    return 'aeiou'.indexOf(word[0]) !== -1    
+   }
 //checks all words starting with consonants and determines how to handle according to test case
 const startsWithConsonant = (word) => {
   const vowels = ['a', 'e', 'i', 'o', 'u']; //list of vowels
