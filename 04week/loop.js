@@ -4,7 +4,7 @@ carsInReverse.forEach((item)=> {
   console.log(item);
 });
 
-//create an object caled persons
+//create an object called persons
 //use a for in loop to console log each key
 //then use for in loop and state to console.log the value associated with the key birthDate
 const persons = {
@@ -39,6 +39,9 @@ do {
 console.log(result);
 
 //when is a for loop better than a while loop?
-//how is the readability of the cod affected?
+  //A for loop is usually better when you want a piece of code to run a certain number of times, and a while loop is better when the condition for the code to keep running is more general.
+//how is the readability of the code affected?
 //what is the difference between a for loop and a for in loop?
+  //for loops contain three sets of conditions that are executed before the code runs and iterate over and increments/decrements each loop pass through.  For in loops are simpler syntax and iterate over enumerable properties of objects.
 //what is the difference between a while loop and a do while loop?
+  //a while loop continues until the while condition is true. Do...while loops through a block of code once, and then repeats the loop while a specified condition is true.
