@@ -2,24 +2,27 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
-}
 
-function map(arr, callback) {
-  // Your code here
-}
+const forEach = (arr,cb) =>{
+
+   arr.forEach(cb);
+  
+};
+
+function map(arr, mapnum){
+  return arr.map(mapnum)
+};
 
 function filter(arr, callback) {
-  // Your code here
+  return arr.filter(callback);
 }
 
 function some(arr, callback) {
-  // Your code here
+  return arr.some(callback);
 }
 
 function every(arr, callback) {
-  // Your code here
+  return arr.every(callback);
 }
 
 if (typeof describe === 'function') {
@@ -36,9 +39,12 @@ if (typeof describe === 'function') {
 
   describe('#map()', () => {
     const arr = [1, 2, 3];
+
     const mapped = map(arr, (num) => {
       return num * num;
     });
+
+
     it('should return new array with mapped items', () => {
       assert.deepEqual(mapped, [1, 4, 9]);
     });
@@ -62,6 +68,7 @@ if (typeof describe === 'function') {
       count++;
       return num % 2 === 0;
     });
+  
     it('should return true if at least one item passes the predicate test', () => {
       assert.equal(somed, true);
     });
