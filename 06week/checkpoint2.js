@@ -12,6 +12,7 @@ console.log(evenSum);
 
 //Find the index of the first "Austin" value (the value plus its index equals 512)
 
+
 let atxIdx;
 const findValue = strNums.find((nums, index)=> {
   if(Number(nums) + index === 512) {
@@ -89,17 +90,16 @@ const weather = [
 ]
 
 // //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-const weatherStates = weather.reduce((accumulator, currentValue) => {
-
-    if(accumulator.indexOf(currentValue.weather_state_name) < 0) {
-      accumulator.push(currentValue.weather_state_name)
+const weatherStates = weather.reduce((acc, currentValue) => {
+    if(acc.indexOf(currentValue.weather_state_name) < 0) {
+      acc.push(currentValue.weather_state_name)
     }   
-    return accumulator
+    return acc
   },[])
-  console.log(weatherStates)
+  console.log(weatherStates);
 
 //find the id of the object in weather that has a min_temp of 15.915
 const idealTemp = weather.find((item) => {
     return item.min_temp === 15.915
-    });
+});
   console.log(idealTemp.id);
