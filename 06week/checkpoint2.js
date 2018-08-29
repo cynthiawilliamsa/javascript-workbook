@@ -11,8 +11,6 @@ console.log(evenSum);
 // console.log(sumEvens);
 
 //Find the index of the first "Austin" value (the value plus its index equals 512)
-
-
 let atxIdx;
 const findValue = strNums.find((nums, index)=> {
   if(Number(nums) + index === 512) {
